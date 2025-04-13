@@ -1,0 +1,24 @@
+# Core Libraries
+numpy
+pandas
+matplotlib
+seaborn
+
+# Machine Learning & Deep Learning
+tensorflow
+scikit-learn
+
+# Audio Processing
+librosa
+
+# Hyperparameter Tuning
+keras-tuner
+
+# Natural Language Processing
+transformers
+
+# Model Development
+tensorflow.keras
+
+opencv-python 
+keras

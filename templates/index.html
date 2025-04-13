@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotion Recognition System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="bi bi-emoji-smile me-2"></i>EmotionSense
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('register') }}">Register</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h1 class="display-4 fw-bold mb-4">Workplace Emotion Analysis Platform</h1>
+                <p class="lead mb-4">Improve workplace wellbeing through AI-powered emotion recognition. Our platform helps organizations understand and respond to employee emotional states.</p>
+                <div class="d-grid gap-2 d-md-flex">
+                    <a href="{{ url_for('login') }}" class="btn btn-primary btn-lg px-4">Get Started</a>
+                    <a href="#features" class="btn btn-outline-secondary btn-lg px-4">Learn More</a>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <img src="{{ url_for('static', filename='images/emotion-analytics.svg') }}" alt="Emotion Analytics Illustration" class="img-fluid mt-4 mt-lg-0">
+            </div>
+        </div>
+    </div>
+
+    <section id="features" class="bg-white py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Key Features</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon bg-primary bg-gradient text-white rounded-circle mb-3">
+                                <i class="bi bi-camera-video"></i>
+                            </div>
+                            <h5 class="card-title">Facial Emotion Recognition</h5>
+                            <p class="card-text">Analyze facial expressions to identify emotions with high accuracy.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon bg-primary bg-gradient text-white rounded-circle mb-3">
+                                <i class="bi bi-mic"></i>
+                            </div>
+                            <h5 class="card-title">Speech Emotion Detection</h5>
+                            <p class="card-text">Identify emotions from voice patterns and speech characteristics.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon bg-primary bg-gradient text-white rounded-circle mb-3">
+                                <i class="bi bi-chat-text"></i>
+                            </div>
+                            <h5 class="card-title">Text Sentiment Analysis</h5>
+                            <p class="card-text">Understand emotions expressed in written communications.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-light py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="mb-3">For Employees</h2>
+                    <p class="lead">Monitor your emotional well-being and get insights to improve your workplace experience.</p>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i> Track emotional patterns over time</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i> Receive personalized recommendations</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i> Improve self-awareness and emotional intelligence</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="mb-3">For HR Professionals</h2>
+                    <p class="lead">Gain valuable insights to support employee wellbeing and improve workplace culture.</p>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i> Receive alerts for potential wellbeing issues</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i> Access actionable recommendations</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i> Build a more supportive workplace environment</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5><i class="bi bi-emoji-smile me-2"></i>EmotionSense</h5>
+                    <p class="small">Enhancing workplace wellbeing through AI-powered emotion recognition.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="small">&copy; 2025 EmotionSense. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

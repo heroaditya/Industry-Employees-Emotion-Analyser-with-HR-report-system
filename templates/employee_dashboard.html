@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Dashboard - EmpathicNet</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+<div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>EmpathicNet</h2>
+        <ul>
+            <li><a href="#dashboard"><i class="fas fa-home"></i> Dashboard</a></li>
+            <li><a href="#emotion"><i class="fas fa-brain"></i> Emotion Detection</a></li>
+            <li><a href="#results"><i class="fas fa-chart-line"></i> Analysis Report</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Hero Slider -->
+        <section class="hero" id="dashboard">
+            <div class="slider">
+                <div class="slide active">
+                    <h2>Welcome to EmpathicNet</h2>
+                    <p>Understand your emotions better with AI-powered analysis.</p>
+                </div>
+                <div class="slide">
+                    <h2>Real-Time Emotion Detection</h2>
+                    <p>Analyze your facial, speech, and text emotions easily.</p>
+                </div>
+                <div class="slide">
+                    <h2>Personal Wellness Insights</h2>
+                    <p>View graphical emotion trends & enhance your mental health.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Emotion Detection Cards -->
+        <section class="emotion-section" id="emotion">
+            <h2>Choose Emotion Detection Mode</h2>
+            <div class="emotion-card">
+                <h3>Facial Emotion Detection</h3>
+                <form action="/predict_facial" method="POST" enctype="multipart/form-data">
+                    <input type="file" name="image" accept="image/*" required>
+                    <button type="submit">Upload Image</button>
+                    <button type="button" onclick="captureImage()">Use Camera</button>
+                </form>
+            </div>
+
+            <div class="emotion-card">
+                <h3>Speech Emotion Detection</h3>
+                <form action="/predict_speech" method="POST" enctype="multipart/form-data">
+                    <input type="file" name="audio" accept=".wav" required>
+                    <button type="submit">Upload Audio</button>
+                    <button type="button" onclick="recordAudio()">Record Audio</button>
+                </form>
+            </div>
+
+            <div class="emotion-card">
+                <h3>Text Emotion Detection</h3>
+                <form action="/predict_text" method="POST">
+                    <textarea name="text" rows="4" placeholder="Type your thoughts here..." required></textarea>
+                    <button type="submit">Analyze Text</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Results Section -->
+        <section class="result-section" id="results">
+            <h2>Emotion Test Results</h2>
+            {% if prediction %}
+                <div class="result-box">
+                    <h4>Test Type: {{ test_type }}</h4>
+                    <p>Predicted Emotion: <strong>{{ prediction }}</strong></p>
+                </div>
+                <div class="chart-box">
+                    <img src="{{ url_for('static', filename='results/latest_chart.png') }}" alt="Emotion Chart">
+                </div>
+            {% else %}
+                <p>No test results available yet. Please try an emotion test above.</p>
+            {% endif %}
+        </section>
+    </div>
+</div>
+
+<!-- Scripts -->
+<script>
+    let slideIndex = 0;
+    const slides = document.querySelectorAll(".slide");
+    setInterval(() => {
+        slides.forEach(slide => slide.classList.remove("active"));
+        slideIndex = (slideIndex + 1) % slides.length;
+        slides[slideIndex].classList.add("active");
+    }, 3000);
+
+    function captureImage() {
+        alert("Camera functionality coming soon!");
+    }
+
+    function recordAudio() {
+        alert("Audio recording functionality coming soon!");
+    }
+</script>
+</body>
+</html>
